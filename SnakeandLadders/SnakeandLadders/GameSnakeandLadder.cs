@@ -39,6 +39,10 @@ namespace SnakeandLadders
                     case Ladder:
                         PlayerPosition += diceNumber;
                         Console.WriteLine("Ladder" + PlayerPosition);
+                        if (PlayerPosition > 100)
+                        {
+                            PlayerPosition = 100;
+                        }
                         break;
 
                     case Snake:
