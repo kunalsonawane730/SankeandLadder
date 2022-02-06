@@ -11,7 +11,8 @@ namespace SnakeandLadders
         const int No_Play = 0; 
         const int Ladder = 1; 
         const int Snake = 2;
-        int PlayerPosition = 0;
+        const int FinalWinningPosition = 100;
+        int PlayerPosition;
         //UC-1 start psition o
         public void GameSnakeandLadder()
         {
@@ -24,23 +25,33 @@ namespace SnakeandLadders
             int diceNumber = random.Next(1, 7);
             Console.WriteLine("Rolled dice number is: " + diceNumber);
 
-    //UC-3 Option for Player
-            int option = random.Next(0, 3);
-
-            switch (option)
+            //UC-3 Option for Player
+            while (PlayerPosition < FinalWinningPosition)
             {
-                case No_Play:
-                    break;
+                int option = random.Next(0, 3);
 
-                case Ladder:
-                    PlayerPosition += diceNumber;
-                    break;
+                switch (option)
+                {
+                    case No_Play:
+                        Console.WriteLine("No Play");
+                        break;
 
-                case Snake:
-                    PlayerPosition -= diceNumber;
-                    break;
+                    case Ladder:
+                        PlayerPosition += diceNumber;
+                        Console.WriteLine("Ladder" + PlayerPosition);
+                        break;
+
+                    case Snake:
+                        PlayerPosition -= diceNumber;
+                        Console.WriteLine("Snake" + PlayerPosition);
+                        if (PlayerPosition < 0)
+                        {
+                            PlayerPosition = 0;
+                        }
+                        break;
+                }
+                Console.WriteLine("Option is: " + option + "\nNow Player position is:" + PlayerPosition);
             }
-            Console.WriteLine("Option is: " + option + "\nNow Player position is:" + PlayerPosition);
         }
     }
 }
