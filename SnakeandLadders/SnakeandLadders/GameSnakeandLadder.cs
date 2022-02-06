@@ -40,7 +40,7 @@ namespace SnakeandLadders
                     PlayerPosition -= diceNumber;
                     break;
             }
-            Console.WriteLine("Option is: " + option + "\nNow Player position is: " + PlayerPosition);
+            Console.WriteLine("Option is: " + option + "\nNow Player position is:" + PlayerPosition);
         }
     }
 }
