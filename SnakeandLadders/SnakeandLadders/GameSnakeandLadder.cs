@@ -8,11 +8,12 @@ namespace SnakeandLadders
 {
     public class SnakeandLadder
     {
-        const int No_Play = 0; 
-        const int Ladder = 1; 
+        const int No_Play = 0;
+        const int Ladder = 1;
         const int Snake = 2;
         const int FinalWinningPosition = 100;
         int PlayerPosition;
+        int DiceCount = 0;
         //UC-1 start psition o
         public void GameSnakeandLadder()
         {
@@ -20,7 +21,7 @@ namespace SnakeandLadders
             Console.WriteLine("Game is start");
             Console.WriteLine("Player start position is " + startPosition);
 
-    //UC-2 Dice number result
+            //UC-2 Dice number result
             Random random = new Random();
             int diceNumber = random.Next(1, 7);
             Console.WriteLine("Rolled dice number is: " + diceNumber);
@@ -54,7 +55,9 @@ namespace SnakeandLadders
                         }
                         break;
                 }
-                Console.WriteLine("Option is: " + option + "\nNow Player position is:" + PlayerPosition);
+                Console.WriteLine("Option is:" + option + "\nNow Player Position is:" + PlayerPosition);
+                DiceCount++;
+                Console.WriteLine("\nNumber of times dice was rolled : " + DiceCount + "\n");
             }
         }
     }
